@@ -2,9 +2,11 @@ package com.sponia.lucene.analysis;
 
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.util.TokenizerFactory;
-import org.apache.lucene.util.AttributeSource;
 import org.apache.lucene.util.Version;
-
+//lucene:4.8之前的版本
+//import org.apache.lucene.util.AttributeSource.AttributeFactory;
+//lucene:4.9
+import org.apache.lucene.util.AttributeFactory;
 import java.io.Reader;
 import java.util.Map;
 
@@ -13,7 +15,6 @@ import java.util.Map;
  */
 public class PunctuationTokenizerFactory extends TokenizerFactory {
 
-    /** Creates a new WhitespaceTokenizerFactory */
     public PunctuationTokenizerFactory(Map<String,String> args) {
         super(args);
         assureMatchVersion();
@@ -23,7 +24,7 @@ public class PunctuationTokenizerFactory extends TokenizerFactory {
     }
 
     @Override
-    public Tokenizer create(AttributeSource.AttributeFactory factory, Reader input) {
-        return new PunctuationTokenizer(Version.LUCENE_47, factory, input);
+    public Tokenizer create(AttributeFactory factory, Reader input) {
+        return new PunctuationTokenizer(luceneMatchVersion, factory, input);
     }
 }

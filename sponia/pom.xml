@@ -4,12 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>lucene_learn</groupId>
-    <artifactId>lucene_learn</artifactId>
+    <groupId>sponia</groupId>
+    <artifactId>sponia</artifactId>
     <version>1.2.1</version>
 
     <properties>
         <lucene.version>4.9.0</lucene.version>
+        <solr.version>4.9.0</solr.version>
     </properties>
 
     <dependencies>
@@ -29,11 +30,6 @@
             <version>${lucene.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-analyzers-common</artifactId>
-            <version>${lucene.version}</version>
-        </dependency>
     </dependencies>
 
     <build>

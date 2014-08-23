@@ -2,7 +2,10 @@ package com.sponia.lucene.analysis;
 
 import org.apache.lucene.analysis.util.CharTokenizer;
 import org.apache.lucene.util.Version;
-import org.apache.lucene.util.AttributeSource.AttributeFactory;
+//lucene:4.8之前的版本
+//import org.apache.lucene.util.AttributeSource.AttributeFactory;
+//lucene:4.9
+import org.apache.lucene.util.AttributeFactory;
 
 import java.io.Reader;
 
