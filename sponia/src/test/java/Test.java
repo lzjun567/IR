@@ -1,3 +1,4 @@
+import com.sponia.lucene.analysis.EdgeOneGramFilter;
 import com.sponia.lucene.analysis.ProfessionalTokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 
@@ -33,12 +34,29 @@ public class Test {
 ////            System.out.println("["+term+"]");
 //        }
 
-        ProfessionalTokenizer technicalToken = new ProfessionalTokenizer( new StringReader("J科比·布莱"));
-        CharTermAttribute t = technicalToken.getAttribute(CharTermAttribute.class);
-        technicalToken.reset();
-        while(technicalToken.incrementToken()){
-            System.out.println("["+t+"]");
+        ProfessionalTokenizer technicalToken = new ProfessionalTokenizer( new StringReader("詹姆死么·科比·布莱恩特"));
+//        technicalToken.reset();
+//        CharTermAttribute t = technicalToken.getAttribute(CharTermAttribute.class);
+//        while(technicalToken.incrementToken()){
+//            System.out.println(""+t+"");
+//        }
+
+        EdgeOneGramFilter firstCharDivisionFilter = new EdgeOneGramFilter(technicalToken);
+        firstCharDivisionFilter.reset();
+
+        CharTermAttribute t = firstCharDivisionFilter.getAttribute(CharTermAttribute.class);
+        while(firstCharDivisionFilter.incrementToken()){
+            System.out.println(""+t+"");
         }
+
+//        EdgeNGramTokenFilter firstCharDivisionFilter = new EdgeNGramTokenFilter(Version.LUCENE_4_9, technicalToken,1,10);
+//        firstCharDivisionFilter.reset();
+//
+//        CharTermAttribute t = firstCharDivisionFilter.getAttribute(CharTermAttribute.class);
+//        while(firstCharDivisionFilter.incrementToken()){
+//            System.out.println(""+t+"");
+//        }
+
 
     }
 
